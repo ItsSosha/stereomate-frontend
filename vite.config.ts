@@ -8,6 +8,16 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: "camelCase",
+      generateScopedName: (name, filename, css) => {
+        let componentName = filename
+          .replace(/\.\w+$/, "")
+          .split("/")
+          .slice(-2, -1);
+
+        const hash = btoa(css).substring(0, 5);
+
+        return `${componentName}_${name}_${hash}`;
+      },
     },
   },
 });
