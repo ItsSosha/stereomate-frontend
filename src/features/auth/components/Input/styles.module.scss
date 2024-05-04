@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    margin-bottom: 0.3em;
+    font-weight: 500;
+  }
+
+  .error {
+    color: var(--color-text-error);
+    margin-top: 0.2em;
+    font-size: 0.9rem;
+  }
+
+  .input {
+    appearance: none;
+    border-radius: 12px;
+    padding-block: 1em;
+    background-color: var(--color-background-neutral);
+    border: none;
+    outline: none;
+    padding-left: 1em;
+    font-weight: 500;
+    transition: box-shadow 0.2s ease-out;
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px var(--color-border-primary);
+    }
+
+    &.invalid {
+      box-shadow: inset 0 0 0 1px var(--color-border-error);
+
+      &:focus {
+        box-shadow: inset 0 0 0 2px var(--color-border-error);
+      }
+    }
+  }
+}

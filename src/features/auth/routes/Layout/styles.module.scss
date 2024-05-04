@@ -1,3 +1,51 @@
+@use "src/sass/abstracts" as *;
+
 .root {
-  background: black;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images//album-bg.jpg") center / cover;
+
+  &-blur {
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  background-color: var(--color-background-primary);
+  padding: 1em;
+
+  @include mixins-respond-to(md) {
+    border-radius: 16px;
+    max-width: 620px;
+    width: 100%;
+    align-self: center;
+  }
+}
+
+.title {
+  font-family: "Smooch Sans", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.1em;
+}
+
+.subtitle {
+  margin-block-start: 0;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
 }

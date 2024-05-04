@@ -1,18 +1,17 @@
-import { Outlet, RouteObject } from "react-router-dom";
-import { LoginRoute } from "../Login";
-import { SignUpRoute } from "../SignUp";
+import { Outlet } from "react-router-dom";
 
 import styles from "./styles.module.scss";
 
-function AuthLayout() {
+export function AuthLayout() {
   return (
     <div className={styles.root}>
-      <Outlet />
+      <div className={styles.rootBlur}>
+        <div className={styles.contentWrapper}>
+          <h1 className={styles.title}>Stereomate</h1>
+          <p className={styles.subtitle}>Music On. World Off.</p>
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 }
-
-export const AuthRoutes: RouteObject = {
-  element: <AuthLayout />,
-  children: [LoginRoute, SignUpRoute],
-};

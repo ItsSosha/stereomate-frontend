@@ -9,7 +9,7 @@ export default defineConfig({
     modules: {
       localsConvention: "camelCase",
       generateScopedName: (name, filename, css) => {
-        let componentName = filename
+        const componentName = filename
           .replace(/\.\w+$/, "")
           .split("/")
           .slice(-2, -1);
