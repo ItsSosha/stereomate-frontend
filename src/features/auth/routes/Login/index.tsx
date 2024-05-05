@@ -6,6 +6,8 @@ import { z } from "zod";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
 
 interface LoginFormState {
   email: string;
@@ -27,8 +29,8 @@ export function Login() {
     mode: "onBlur",
   });
 
-  const onSubmit = (formState: LoginFormState) => {
-    console.log(formState);
+  const onSubmit = ({ email, password }: LoginFormState) => {
+    signInWithEmailAndPassword(auth, email, password);
   };
 
   return (

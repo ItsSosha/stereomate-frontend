@@ -1,8 +1,9 @@
+import { observer } from "mobx-react-lite";
 import { PropsWithChildren } from "react";
 import { Navigate } from "react-router-dom";
+import { authStore } from "../../stores/authStore";
 
-export function ProtectedRoute({ children }: PropsWithChildren) {
-  const authenticated = true;
-
-  return authenticated ? children : <Navigate to="/login" />;
-}
+export const ProtectedRoute = observer(({ children }: PropsWithChildren) => {
+  const { idToken } = authStore;
+  return !!idToken ? children : <Navigate to="/login" />;
+});

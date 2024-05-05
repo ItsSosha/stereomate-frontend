@@ -6,6 +6,8 @@ import { z } from "zod";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
 
 interface SignUpFormState {
   email: string;
@@ -41,8 +43,8 @@ export function SignUp() {
     mode: "onBlur",
   });
 
-  const onSubmit = (formState: SignUpFormState) => {
-    console.log(formState);
+  const onSubmit = async ({ email, password }: SignUpFormState) => {
+    await createUserWithEmailAndPassword(auth, email, password);
   };
 
   return (

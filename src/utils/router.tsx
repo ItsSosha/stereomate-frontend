@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "@/App";
-import { AuthRoutes } from "@/features/auth";
+import { AuthRoutes, ProtectedRoute } from "@/features/auth";
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <></>,
+        element: <ProtectedRoute/>,
       },
       AuthRoutes,
     ],
